@@ -6,32 +6,31 @@
 /*   By: alabreui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 15:15:03 by alabreui          #+#    #+#             */
-/*   Updated: 2019/07/13 19:51:34 by jvaquer          ###   ########.fr       */
+/*   Updated: 2019/07/14 11:52:51 by alabreui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <stdio.h>
 #include "utils.h"
 
-void check_special_cases(int tab[4][4], int *params);
-
-int main()
+int	main(void)
 {
-	int tab[SIZE][SIZE] = {
-		{0, 0, 0, 0},
-		{0, 0, 0, 0},
-		{0, 0, 0, 0},
-		{0, 0, 0, 0}};
-	int params[] = {4, 3, 2, 1, 1, 2, 2, 2, 4, 3, 2, 1, 1, 2, 2};
-	check_special_cases(tab, params);
-
+	int tab[SIZE + 2][SIZE + 2] = {
+		{0, 4, 3, 2, 1, 0},
+		{4, 0, 0, 0, 0, 1},
+		{3, 0, 0, 0, 0, 2},
+		{2, 0, 0, 0, 0, 2},
+		{1, 0, 0, 0, 0, 2},
+		{0, 1, 2, 2, 2, 0}};
 	int i;
 	int j;
 
-	i = 0;
-	while (i < SIZE)
+	check_special_cases(tab);
+	i = 1;
+	while (i <= SIZE)
 	{
-		j = 0;
-		while (j < SIZE)
+		j = 1;
+		while (j <= SIZE)
 		{
 			printf("%d ", tab[i][j]);
 			j++;
