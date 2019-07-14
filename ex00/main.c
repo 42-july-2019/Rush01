@@ -6,7 +6,7 @@
 /*   By: alabreui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 15:15:03 by alabreui          #+#    #+#             */
-/*   Updated: 2019/07/14 16:09:59 by alabreui         ###   ########.fr       */
+/*   Updated: 2019/07/14 16:15:25 by alabreui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,17 @@
 #include <unistd.h>
 #include "utils.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
+//	if (argc < 2)
+//		write(1, "Error\n", 7);	
+//	else
+//	{
+//		char *str;
+//		
+//		str = argv[1];
+//		// insert rest of main here...
+//	}
 	char str[] = "4 3 2 1 1 2 2 2 4 3 2 1 1 2 2 2";
 	int tab[SIZE + 2][SIZE + 2] = {
 		{0, 4, 3, 2, 1, 0},
