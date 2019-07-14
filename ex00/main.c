@@ -6,38 +6,61 @@
 /*   By: alabreui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 15:15:03 by alabreui          #+#    #+#             */
-/*   Updated: 2019/07/14 10:41:41 by jvaquer          ###   ########.fr       */
+/*   Updated: 2019/07/14 18:22:02 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+
+#include <unistd.h>
 #include "utils.h"
 
-void solve_puzzle(int tab[4][4]);
-void check_special_cases(int tab[4][4], int *params);
-
-int main()
+void	ft_putchar(char c)
 {
-	int tab[SIZE][SIZE] = {
-		{0, 0, 0, 0},
-		{0, 0, 0, 0},
-		{0, 0, 0, 0},
-		{0, 0, 0, 0}};
-	int params[] = {4, 3, 2, 1, 1, 2, 2, 2, 4, 3, 2, 1, 1, 2, 2};
-	check_special_cases(tab, params);
-	solve_puzzle(tab);
+	write(1, &c, 1);
+}
+
+void print_array(int *tab[SIZE + 2])
+{
 	int i;
 	int j;
 
-	i = 0;
-	while (i < SIZE)
+	i = 1;
+	while (i <= SIZE)
 	{
-		j = 0;
-		while (j < SIZE)
+		j = 1;
+		while (j <= SIZE)
 		{
-			printf("%d ", tab[i][j]);
+			ft_putchar(tab[i][j] + '0');
+			ft_putchar(' ');
 			j++;
 		}
-		printf("\n");
+		ft_putchar('\n');
 		i++;
+	}
+}
+
+int		main(int argc, char **argv)
+{
+	if (argc < 2)
+	{
+		write(1, "Error\n", 7);
+	}
+	else
+	{		
+		char *str;
+		int **array;
+
+		str = argv[1];
+		if (!params_are_valid(str))
+			write(1, "Error\n", 7);
+		else
+		{
+			array = generate_array(str);
+			if (!array_is_valid(array))
+				write(1, "Error\n", 7);
+			else {
+				check_special_cases(array);
+				print_array(array);
+			}
+		}
 	}
 }
