@@ -6,114 +6,99 @@
 /*   By: jvaquer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 19:52:32 by jvaquer           #+#    #+#             */
-/*   Updated: 2019/07/14 18:24:31 by jvaquer          ###   ########.fr       */
+/*   Updated: 2019/07/14 23:39:43 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-int		find_empty(int tab[SIZE][SIZE], int *x, int *y)
+int		find_empty(int *tab[SIZE + 2], int *x, int *y);
+int		check_row(int *tab[SIZE + 2], int x, int nb);
+int		check_col(int *tab[SIZE + 2], int y, int nb);
+int		check_height_row_left(int *tab[SIZE + 2], int x);
+
+int		check_height_row_right(int *tab[SIZE + 2], int x)
 {
-	*x = 0;
-	while (*x < 5)
+	int max;
+	int count;
+	int y;
+
+	y = 5;
+	max = 0;
+	count = tab[x][y];
+	y--;
+	while (y > 0)
 	{
-		*y = 0;
-		while (*y < 5)
+		if (tab[x][y] > max)
 		{
-			if (tab[*x][*y] == 0)
-			{
-				return (1);
-			}
-			*y += 1;
+			max = tab[x][y];
+			count--;
 		}
-		*x += 1;
+		y--;
 	}
+	if (count == 0)
+		return (1);
 	return (0);
 }
 
-int		check_row(int tab[SIZE][SIZE], int x, int nb)
+int		check_height_col_up(int *tab[SIZE + 2], int y)
 {
-	int y;
-
-	y = 0;
-	while (y < 4)
-	{
-		if (tab[x][y] == nb)
-		{
-			return (0);
-		}
-		y++;
-	}
-	return (1);
-}
-
-int		check_col(int tab[SIZE][SIZE], int y, int nb)
-{
+	int max;
+	int count;
 	int x;
 
 	x = 0;
-	while (x < 4)
-	{
-		if (tab[x][y] == nb)
-			return (0);
-		x++;
-	}
-	return (1);
-}
-
-int		check_height_row(int tab[SIZE][SIZE], int x, int y)
-{
-	int max;
-	int count;
-
 	max = 0;
-	count = 0;
-	while (y < 4)
+	count = tab[x][y];
+	x++;
+	while (x < 5)
 	{
 		if (tab[x][y] > max)
 		{
 			max = tab[x][y];
-			count++;
+			count--;
 		}
-		y++;
+		x++;
 	}
+	if (count == 0)
+		return (1);
 	return (0);
 }
 
-int		check_height_col(int tab[SIZE][SIZE], int x, int y)
+int		check_height_col_down(int *tab[SIZE + 2], int y)
 {
 	int max;
 	int count;
+	int x;
 
+	x = 5;
 	max = 0;
-	count = 0;
-	while (x < 4)
+	count = tab[x][y];
+	x--;
+	while (x > 1)
 	{
 		if (tab[x][y] > max)
 		{
 			max = tab[x][y];
-			count++;
+			count--;
 		}
-		x++;
+		x--;
 	}
-	return 0;
+	if (count == 0)
+		return (1);
+	return (0);
 }
 
-//TODO
-int		conditions(int tab[SIZE][SIZE], int x, int y, int nb)
+int		conditions(int *tab[SIZE + 2], int x, int y, int nb)
 {
 	if (!check_row(tab, x, nb))
-		return 0;
-	else if (!check_col(tab, y, nb))
-		return 0;
-	//else if (!check_height_row(tab, x, y))
-	//	return 0;
-	//else if (!check_height_col(tab, x, y))
-	//	return 0;
-	return 1;
+		return (0);
+	if (!check_col(tab, y, nb))
+		return (0);
+	return (1);
 }
 
-int		solve_puzzle(int tab[SIZE][SIZE])
+int		solve_puzzle(int *tab[SIZE + 2])
 {
 	int x;
 	int y;
@@ -124,19 +109,14 @@ int		solve_puzzle(int tab[SIZE][SIZE])
 	nb = 1;
 	while (nb <= 4)
 	{
-		//printf("%d\n", nb);
 		if (conditions(tab, x, y, nb) == 1)
 		{
 			tab[x][y] = nb;
 			if (solve_puzzle(tab))
 			{
-				//printf("OK: %d,%d -> %d\n", x, y, nb);
-				//break;
 				return 1;
 			}
-			//printf("KO\n");
-			//break;
-			tab[x][y] = (0);
+			tab[x][y] = 0;
 		}
 		nb++;
 	}

@@ -6,7 +6,7 @@
 /*   By: alabreui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 15:15:03 by alabreui          #+#    #+#             */
-/*   Updated: 2019/07/14 18:22:02 by jvaquer          ###   ########.fr       */
+/*   Updated: 2019/07/14 20:34:00 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ int		main(int argc, char **argv)
 				write(1, "Error\n", 7);
 			else {
 				check_special_cases(array);
-				print_array(array);
+				if (solve_puzzle(array))
+					print_array(array);
 			}
 		}
 	}
