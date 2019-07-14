@@ -6,7 +6,7 @@
 /*   By: alabreui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 15:15:45 by alabreui          #+#    #+#             */
-/*   Updated: 2019/07/14 13:56:17 by alabreui         ###   ########.fr       */
+/*   Updated: 2019/07/14 15:55:13 by alabreui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define UTILS_H
 # define SIZE 4
 
+int		params_are_valid(char *str);
+int		array_is_valid(int tab[SIZE + 2][SIZE + 2]);
 void	check_up_conditions(int tab[SIZE + 2][SIZE + 2]);
 void	check_down_conditions(int tab[SIZE + 2][SIZE + 2]);
 void	check_left_conditions(int tab[SIZE + 2][SIZE + 2]);
