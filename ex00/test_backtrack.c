@@ -6,7 +6,7 @@
 /*   By: jvaquer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 19:52:32 by jvaquer           #+#    #+#             */
-/*   Updated: 2019/07/13 20:42:49 by jvaquer          ###   ########.fr       */
+/*   Updated: 2019/07/14 03:22:34 by jvaquer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,63 @@ int		check_col(int tab[SIZE][SIZE], int y, int nb)
 	return 1;
 }
 
-//TODO
-int		check_height(int tab[SIZE][SIZE], int x, int y)
+int		check_height_row(int tab[SIZE][SIZE])
 {
-	
+	int max;
+	int count;
+	int y1;
+
+	y1 = 0;
+	max = tab[x][y1];
+	count = max;
+	y1 = 1;
+	while (y1 <= x || !count)
+	{
+		if (tab[x][y1] > max)
+			count++;
+		if (count == 0)
+			return 0;
+		y1++;
+	}
+	y1 = 5;
+	max = tab[x][y1];
+	count = max;
+	while ()
+	{
+
+	}
+}
+
+int		check_height_col(int tab[SIZE][SIZE], int x, int y)
+{
+	int max;
+	int count;
+	int x1;
+
+	x1 = 0;
+	max = tab[x1][y];
+	count = max;
+	x1 += 1;
+	while (x1 <= x || !count)
+	{
+		if (tab[x1][y] > max)
+			count--;
+		if (count == 0)
+			return 0;
+		x1++;
+	}
+	x1 = 5;
+	max = tab[x1][y];
+	count = max;
+	while (x1 != 0 || !count)
+	{
+		if (tab[x1][y] >= max)
+			count--;
+		if (count == 0)
+			return 0;
+		x1--;
+	}
+	return 1;
 }
 //TODO
 int		conditions(int tab[SIZE][SIZE], int x, int y, int nb)
