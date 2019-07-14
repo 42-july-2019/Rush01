@@ -6,7 +6,7 @@
 /*   By: alabreui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 11:22:12 by alabreui          #+#    #+#             */
-/*   Updated: 2019/07/14 13:32:17 by alabreui         ###   ########.fr       */
+/*   Updated: 2019/07/14 17:15:46 by alabreui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 ** 	right	-> 	i ∈ [1, SIZE], 	j = SIZE + 1
 */
 
-void	check_up_conditions(int tab[SIZE + 2][SIZE + 2])
+void	check_up_conditions(int *tab[SIZE + 2])
 {
 	int		i;
 	int		j;
@@ -46,7 +46,7 @@ void	check_up_conditions(int tab[SIZE + 2][SIZE + 2])
 	}
 }
 
-void	check_down_conditions(int tab[SIZE + 2][SIZE + 2])
+void	check_down_conditions(int *tab[SIZE + 2])
 {
 	int		i;
 	int		j;
@@ -73,7 +73,7 @@ void	check_down_conditions(int tab[SIZE + 2][SIZE + 2])
 	}
 }
 
-void	check_left_conditions(int tab[SIZE + 2][SIZE + 2])
+void	check_left_conditions(int *tab[SIZE + 2])
 {
 	int		i;
 	int		j;
@@ -100,7 +100,7 @@ void	check_left_conditions(int tab[SIZE + 2][SIZE + 2])
 	}
 }
 
-void	check_right_conditions(int tab[SIZE + 2][SIZE + 2])
+void	check_right_conditions(int *tab[SIZE + 2])
 {
 	int		i;
 	int		j;

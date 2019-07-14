@@ -6,7 +6,7 @@
 /*   By: alabreui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 15:15:03 by alabreui          #+#    #+#             */
-/*   Updated: 2019/07/14 16:15:25 by alabreui         ###   ########.fr       */
+/*   Updated: 2019/07/14 17:22:30 by alabreui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,41 +16,38 @@
 
 int	main(int argc, char **argv)
 {
-//	if (argc < 2)
-//		write(1, "Error\n", 7);	
-//	else
-//	{
-//		char *str;
-//		
-//		str = argv[1];
-//		// insert rest of main here...
-//	}
-	char str[] = "4 3 2 1 1 2 2 2 4 3 2 1 1 2 2 2";
-	int tab[SIZE + 2][SIZE + 2] = {
-		{0, 4, 3, 2, 1, 0},
-		{4, 0, 0, 0, 0, 1},
-		{3, 0, 0, 0, 0, 2},
-		{2, 0, 0, 0, 0, 2},
-		{1, 0, 0, 0, 0, 2},
-		{0, 1, 2, 2, 2, 0}};
+	char *str;
+	if (argc < 2)
+	{
+		//write(1, "Error\n", 7);
+		str = "4 3 2 1 1 2 2 2 4 3 2 1 1 2 2 2";
+
+	}
+	else
+	{		
+		str = argv[1];
+		// insert rest of main here...
+	}
+	int **array;
 	int i;
 	int j;
 
+	array = generate_array(str);
 	if (!params_are_valid(str))
 		write(1, "Error\n", 7);
 	else
 	{
-		if (!array_is_valid(tab))
+		if (!array_is_valid(array))
 			write(1, "Error\n", 7);
 		else {
-			check_special_cases(tab);
-			i = 1;
-			while (i <= SIZE)
+			check_special_cases(array);
+			i = 0;
+			while (i <= SIZE + 1)
 			{
-				j = 1;
-				while (j <= SIZE)
+				j = 0;
+				while (j <= SIZE + 1)
 				{
-					printf("%d ", tab[i][j]);
+					printf("%d ", array[i][j]);
 					j++;
 				}
 				printf("\n");

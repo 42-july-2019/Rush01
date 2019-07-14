@@ -6,7 +6,7 @@
 /*   By: alabreui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 13:17:35 by alabreui          #+#    #+#             */
-/*   Updated: 2019/07/14 11:52:13 by alabreui         ###   ########.fr       */
+/*   Updated: 2019/07/14 17:14:49 by alabreui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ** 	right	-> 	i ∈ [1, SIZE], 	j = SIZE + 1
 */
 
-void	check_special_cases(int tab[SIZE + 2][SIZE + 2])
+void	check_special_cases(int *tab[SIZE + 2])
 {
 	check_up_conditions(tab);
 	check_down_conditions(tab);

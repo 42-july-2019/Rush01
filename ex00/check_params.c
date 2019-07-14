@@ -6,7 +6,7 @@
 /*   By: alabreui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 14:14:06 by alabreui          #+#    #+#             */
-/*   Updated: 2019/07/14 16:09:46 by alabreui         ###   ########.fr       */
+/*   Updated: 2019/07/14 17:12:59 by alabreui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		duo_is_valid(int param1, int param2)
 	return (1);
 }
 
-int		array_is_valid(int tab[SIZE + 2][SIZE + 2])
+int		array_is_valid(int *tab[SIZE + 2])
 {
 	int i;
 	int j;
