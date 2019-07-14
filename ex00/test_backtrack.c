@@ -6,10 +6,11 @@
 /*   By: jvaquer <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/13 19:52:32 by jvaquer           #+#    #+#             */
-/*   Updated: 2019/07/13 20:42:49 by jvaquer          ###   ########.fr       */
+/*   Updated: 2019/07/14 14:06:27 by alabreui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "utils.h"
 
 int		find_empty(int tab[SIZE][SIZE], int *x, int *y)
 {
